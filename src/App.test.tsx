@@ -1,9 +1,10 @@
+import '@testing-library/jest-dom';  // Add this import at the top of your test file
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders portfolio welcome message', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const welcomeMessage = screen.getByText(/Welcome to my portfolio/i);
+  expect(welcomeMessage).toBeInTheDocument();
 });
