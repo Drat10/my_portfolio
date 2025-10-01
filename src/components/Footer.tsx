@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             {/* Social links - Direct approach */}
             <div className="flex gap-4 mb-6">
               <a
-                href="https://github.com/"
+                href="https://github.com/Drat10"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:text-gray-400 transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                 <FaGithub className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/"
+                href="www.linkedin.com/in/chamba-nedup-bhutia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -148,8 +148,8 @@ const Footer: React.FC = () => {
               <div className="space-y-2 text-sm text-gray-400">
                 <p className="flex items-center gap-2">
                   <span>📧</span>
-                  <a href="mailto:hello@chambadev.com" className="hover:text-white transition-colors duration-300">
-                    hello@chambadev.com
+                  <a href="mailto:champolasherpa@gmail.com" className="hover:text-white transition-colors duration-300">
+                    champolasherpa@gmail.com
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
@@ -171,7 +171,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Chamba Nedup Bhutia. All rights reserved. Made with ❤️ in Nepal
+              © {currentYear} Chamba Nedup Bhutia. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
               <button 

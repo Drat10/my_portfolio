@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -136,6 +137,7 @@ const App: React.FC = () => {
         <Projects />
         <Services />
         <Testimonials testimonials={sampleTestimonials} />
+        <Contact/>
       </main>
 
       {/* Footer */}
