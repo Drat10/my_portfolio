@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaLaptopCode, FaPencilRuler, FaMobileAlt, FaProjectDiagram } from "react-icons/fa";
+// Type for the service data
 interface Service {
   title: string;
   desc: string;
@@ -8,8 +9,8 @@ interface Service {
 }
 
 const Services: React.FC = () => {
-  const [activeService, setActiveService] = useState<number>(1);
-  
+  const [activeService, setActiveService] = useState<number | null>(null); // Tracks the currently active service
+
   const services: Service[] = [
     {
       title: "UI/UX Design",
@@ -38,8 +39,8 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       className="min-h-screen flex flex-col justify-center px-6 md:px-20 py-20 bg-gray-50 dark:bg-gray-900/50"
     >
       {/* Section Header */}
@@ -55,49 +56,16 @@ const Services: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => {
             const isActive = index === activeService;
-            const ServiceIcon = service.Icon;
-            
             return (
-              <div
+              <ServiceCard
                 key={index}
-                onClick={() => setActiveService(index)}
-                className={`cursor-pointer p-8 rounded-2xl transition-all duration-300 hover:scale-105 ${
-                  isActive 
-                    ? "bg-white dark:bg-gray-800 shadow-xl border-2 border-purple-200 dark:border-purple-700" 
-                    : "bg-gray-100 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 border-2 border-transparent"
-                }`}
-              >
-                <div className={`inline-flex p-4 rounded-xl mb-6 transition-colors duration-300 ${
-                  isActive 
-                    ? "bg-purple-600 text-white" 
-                    : "bg-purple-100 dark:bg-purple-900/30 text-purple-600"
-                }`}>
-                  <ServiceIcon size={32} />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                  {service.desc}
-                </p>
-                
-                {/* Service features (shown only for active service) */}
-                {isActive && (
-                  <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <h4 className="font-semibold mb-3 text-sm text-purple-600">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li 
-                          key={featureIndex}
-                          className="flex items-center text-sm text-gray-600 dark:text-gray-300"
-                        >
-                          <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
+                service={service}
+                isActive={isActive}
+                onClick={() => {
+                  // Toggle the active service when clicked
+                  setActiveService(isActive ? null : index); // If the clicked service is active, collapse it, else expand it
+                }}
+              />
             );
           })}
         </div>
@@ -109,9 +77,9 @@ const Services: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setActiveService(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeService 
-                    ? "bg-purple-600 w-8" 
+                className={`w-3 h-3 rounded-full transition-all duration-300 service-dot ${
+                  index === activeService
+                    ? "bg-purple-600 w-8"
                     : "bg-gray-300 dark:bg-gray-600 hover:bg-purple-400"
                 }`}
                 aria-label={`Select service ${index + 1}`}
@@ -127,14 +95,14 @@ const Services: React.FC = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Let's discuss how I can help bring your ideas to life with professional design and development services.
             </p>
-            <button 
+            <button
               onClick={() => {
                 const element = document.getElementById("contact");
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:scale-105 transition-all duration-300 font-medium shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full hover:scale-105 transition-all duration-300 font-medium shadow-lg cta-button"
             >
               Get Started
             </button>
@@ -145,4 +113,59 @@ const Services: React.FC = () => {
   );
 };
 
+// ServiceCard Component
+interface ServiceCardProps {
+  service: Service;
+  isActive: boolean;
+  onClick: () => void;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ service, isActive, onClick }) => {
+  const ServiceIcon = service.Icon;
+
+  return (
+    <div
+      onClick={onClick}
+      className={`cursor-pointer p-8 rounded-2xl transition-all duration-300 hover:scale-105 ${
+        isActive
+          ? "bg-white dark:bg-gray-800 shadow-xl border-2 border-purple-200 dark:border-purple-700"
+          : "bg-gray-100 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 border-2 border-transparent"
+      }`}
+      aria-label={`Service: ${service.title}`}
+    >
+      <div
+        className={`inline-flex p-4 rounded-xl mb-6 transition-colors duration-300 ${
+          isActive
+            ? "bg-purple-600 text-white"
+            : "bg-purple-100 dark:bg-purple-900/30 text-purple-600"
+        }`}
+      >
+        <ServiceIcon size={32} />
+      </div>
+
+      <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+        {service.desc}
+      </p>
+
+      {/* Service features (shown only for active service) */}
+      {isActive && (
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <h4 className="font-semibold mb-3 text-sm text-purple-600">Key Features:</h4>
+          <ul className="space-y-2">
+            {service.features.map((feature, featureIndex) => (
+              <li
+                key={featureIndex}
+                className="flex items-center text-sm text-gray-600 dark:text-gray-300"
+              >
+                <span className="w-2 h-2 bg-purple-600 rounded-full mr-3"></span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
 export default Services;

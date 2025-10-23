@@ -13,9 +13,9 @@ const Projects: React.FC = () => {
 
   const projects: Project[] = [
     { 
-      name: "TravlnN", 
-      description: "A modern travel booking platform with real-time availability and seamless user experience",
-      tech: "React, Node.js, MongoDB",
+      name: "TravlnN (Travel In Nepal)", 
+      description: "A modern travel guide to exploring Nepal’s stunning destinations and delicious, diverse cuisine. ",
+      tech: "Php, Bootstrap,JS, MySQL",
       image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop",
       link: "#",
       github: "https://github.com/"
@@ -23,23 +23,23 @@ const Projects: React.FC = () => {
     { 
       name: "OishiTrek", 
       description: "Food delivery mobile app with GPS tracking and real-time order updates",
-      tech: "React Native, Firebase, Stripe",
+      tech: "Php, Infinityfree, Js,Bootstrap etc",
       image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop",
-      link: "#",
+      link: "https://chamba.com.np",
       github: "https://github.com/"
     },
     { 
       name: "OishiBite", 
-      description: "Restaurant discovery platform with reviews, ratings, and table booking system",
-      tech: "Vue.js, Express.js, PostgreSQL",
+      description: "A single-store food ordering system designed for efficient menu browsing, quick ordering, and smooth customer experience.",
+      tech: "Asp.Net, MySQL, Bootstrap etc",
       image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
       link: "#",
       github: "https://github.com/"
     },
     { 
-      name: "Listerner", 
+      name: "Strikes", 
       description: "Music streaming application with personalized playlists and social features",
-      tech: "React, Python, AWS",
+      tech: "Ongoing",
       image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop",
       link: "#",
       github: "https://github.com/"

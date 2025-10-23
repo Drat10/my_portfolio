@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                 <FaGithub className="w-5 h-5" />
               </a>
               <a
-                href="www.linkedin.com/in/chamba-nedup-bhutia"
+                href="https://linkedin.com/in/chamba-nedup-bhutia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-gray-800 rounded-full hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -154,8 +154,8 @@ const Footer: React.FC = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <span>📱</span>
-                  <a href="tel:+9779800000000" className="hover:text-white transition-colors duration-300">
-                    +977 9800000000
+                  <a href="tel:+9779840017619" className="hover:text-white transition-colors duration-300">
+                    +977 9840017619
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
@@ -195,13 +195,13 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Additional info */}
+          {/* Additional info
           <div className="mt-6 pt-6 border-t border-gray-800 text-center">
             <p className="text-xs text-gray-500">
               This website is built with React, TypeScript, and Tailwind CSS. 
               Deployed with love and attention to detail.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       

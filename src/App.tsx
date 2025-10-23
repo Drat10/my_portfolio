@@ -7,7 +7,9 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
-
+import testimonial1 from './assets/testimonial-1.jpg';
+import testimonial2 from './assets/testimonial-2.jpg';
+import testimonial3 from './assets/testimonial-3.jpg';
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
@@ -24,23 +26,23 @@ const App: React.FC = () => {
     {
       text: "Chamba is an excellent developer. His work on the portfolio project was amazing!",
       rating: 5,
-      avatar: "https://www.example.com/avatar1.jpg",
-      name: "John Doe",
+      avatar: testimonial1,
+      name: "John Don",
       role: "CEO",
-      company: "Example Corp"
+      company:"Example co"
     },
     {
       text: "I highly recommend Chamba! His attention to detail and creativity are top-notch.",
       rating: 4,
-      avatar: "https://www.example.com/avatar2.jpg",
+      avatar: testimonial2,
       name: "Jane Smith",
       role: "Product Manager",
-      company: "Tech Inc."
+      company: "Eg Inc."
     },
     {
       text: "A fantastic experience working with Chamba. He delivered everything on time and exceeded expectations.",
       rating: 5,
-      avatar: "https://www.example.com/avatar3.jpg",
+      avatar: testimonial3,
       name: "Alice Brown",
       role: "Lead Developer",
       company: "Innovative Solutions"
